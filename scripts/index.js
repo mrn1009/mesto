@@ -1,12 +1,12 @@
-let editButton = document.querySelector('.profile__edit-button');
-let popup = document.querySelector('.popup');
-let popupContent = popup.querySelector('.popup__content')
-let popupCloseButton = popupContent.querySelector('.popup__close');
-let form = popupContent.querySelector('.popup__form')
-let nameField = form.querySelector('.popup__input_type_name');
-let postField = form.querySelector('.popup__input_type_post');
-let profileName = document.querySelector('.profile__name');
-let profilePost = document.querySelector('.profile__post');
+const editButton = document.querySelector('.profile__edit-button');
+const popup = document.querySelector('.popup');
+const popupContent = popup.querySelector('.popup__content')
+const popupCloseButton = popupContent.querySelector('.popup__close');
+const form = popupContent.querySelector('.popup__form')
+const nameField = form.querySelector('.popup__input_type_name');
+const postField = form.querySelector('.popup__input_type_post');
+const profileName = document.querySelector('.profile__name');
+const profilePost = document.querySelector('.profile__post');
 
 function openPopup() {
     nameField.setAttribute('value', profileName.textContent);
