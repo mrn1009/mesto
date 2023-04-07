@@ -9,6 +9,7 @@
     background-color: rgba(0, 0, 0, 0);
     background-size: contain;
     padding: 0;
+    cursor: pointer;
 }
 
 .popup__close:hover {

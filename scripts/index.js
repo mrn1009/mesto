@@ -1,43 +1,32 @@
 const editButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
-const popupContent = popup.querySelector('.popup__content')
+const popupContent = popup.querySelector('.popup__container')
 const popupCloseButton = popupContent.querySelector('.popup__close');
 const form = popupContent.querySelector('.popup__form')
-const nameField = form.querySelector('.popup__input_type_name');
-const postField = form.querySelector('.popup__input_type_post');
-const profileName = document.querySelector('.profile__name');
-const profilePost = document.querySelector('.profile__post');
+const nameInput = form.querySelector('.popup__input_type_name');
+const postInput = form.querySelector('.popup__input_type_post');
+const profileName = document.querySelector('.profile__name');   
+const profilePost = document.querySelector('.profile__post');     
+
+editButton.addEventListener("click", openPopup);
 
 function openPopup() {
-    nameField.setAttribute('value', profileName.textContent);
-    postField.setAttribute('value', profilePost.textContent);
-
-    popup.classList.add('popup_isOpen');
-}
+    popup.classList.add("popup_opened");
+    nameInput.value = profileName.textContent;
+    postInput.value = profilePost.textContent;
+  }
+ 
+popupCloseButton.addEventListener("click", closePopup);
 
 function closePopup() {
-    popup.classList.remove('popup_isOpen');
-}
-
-editButton.addEventListener('click', openPopup);
-
-popupCloseButton.addEventListener('click', closePopup);
-
-function submitForm(event) {
-    event.preventDefault()
-
-    profileName.textContent = nameField.value;
-    profilePost.textContent = postField.value;
-
+    popup.classList.remove("popup_opened");
+  }
+  
+function formSubmit(evt) {
+    evt.preventDefault();
+    profileName.textContent = nameInput.value;
+    profilePost.textContent = postInput.value;
     closePopup();
-}
-
-form.addEventListener('submit', submitForm);
-
-function popupClickHandler(event) {
-    if (event.target.classList.contains('popup')) {
-        closePopup()
-    }
-}
-
-popup.addEventListener('mouseup', popupClickHandler)
+  }
+  
+  form.addEventListener("submit", formSubmit);
