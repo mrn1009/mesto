@@ -8,16 +8,12 @@ const postInput = form.querySelector('.popup__input_type_post');
 const profileName = document.querySelector('.profile__name');   
 const profilePost = document.querySelector('.profile__post');     
 
-editButton.addEventListener("click", openPopup);
-
 function openPopup() {
     popup.classList.add("popup_opened");
     nameInput.value = profileName.textContent;
     postInput.value = profilePost.textContent;
   }
  
-popupCloseButton.addEventListener("click", closePopup);
-
 function closePopup() {
     popup.classList.remove("popup_opened");
   }
@@ -28,5 +24,7 @@ function formSubmit(evt) {
     profilePost.textContent = postInput.value;
     closePopup();
   }
-  
-  form.addEventListener("submit", formSubmit);
+
+editButton.addEventListener("click", openPopup);
+popupCloseButton.addEventListener("click", closePopup);
+form.addEventListener("submit", formSubmit);
