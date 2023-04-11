@@ -1,5 +1,5 @@
-const popup = document.querySelectorAll('.popup');
-const popupArray = Array.from(popup);
+const popups = document.querySelectorAll('.popup')
+const popupArray = Array.from(popups);
 const elementList = document.querySelector('.elements');
 const templateElement = document.querySelector('.template').content;
 const figurePopup = document.querySelector('.popup_type_figure');
@@ -20,15 +20,15 @@ const profileName = document.querySelector('.profile__name');
 const profilePost = document.querySelector('.profile__post');
 
 
-function openPopup(popup) {
+ function openPopup(popup) {
     popup.classList.add('popup_opened');
 } 
 
-function closePopup(popup) {
+ function closePopup(popup) {
     popup.classList.remove('popup_opened');
 } 
 
-function createCard(item) {
+ function createCard(item) {
     const element = templateElement.querySelector('.element').cloneNode(true);
     const image = element.querySelector('.element__image');
     image.style.backgroundImage = `url('${item.link}')`;
@@ -62,10 +62,8 @@ function appendCard(item) {
 
 function submitEditForm(event) {
     event.preventDefault()
-
     profileName.textContent = nameField.value;
     profilePost.textContent = postField.value;
-
     closePopup(editPopup);
 }
 
@@ -89,12 +87,17 @@ function setUserInfoValues() {
     postField.value = profilePost.textContent;
 } 
 
-function closeByOverlayClick(event) {
-    if (event.target.classList.contains('popup')) {
-        const openedPopup = document.querySelector('.popup_opened');
-        closePopup(openedPopup);
-    }
-} 
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+          closePopup(popup)
+        }
+    })
+})
+
 initialCards.forEach(appendCard);
 
 editButton.addEventListener('click', ()=> {
@@ -102,18 +105,5 @@ editButton.addEventListener('click', ()=> {
     setUserInfoValues();
 })
 addButton.addEventListener('click', ()=> openPopup(addPopup));
-
 editForm.addEventListener('submit', submitEditForm);
-
 addForm.addEventListener('submit', addCard);
-
-popupArray.forEach(function(popup) {
-    const closeButton = popup.querySelector('.popup__close');
-    closeButton.addEventListener('click', ()=> {
-        closePopup(popup);
-    })
-}) 
-
-editPopup.addEventListener('click', closeByOverlayClick);
-addPopup.addEventListener('click', closeByOverlayClick);
-figurePopup.addEventListener('click', closeByOverlayClick);
