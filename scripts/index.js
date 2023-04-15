@@ -22,10 +22,12 @@ const profilePost = document.querySelector('.profile__post');
 
  function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeByEscapePress);
 } 
 
  function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeByEscapePress);
 } 
 
  function createCard(item) {
@@ -95,8 +97,16 @@ popups.forEach((popup) => {
         if (evt.target.classList.contains('popup__close')) {
           closePopup(popup)
         }
+        
     })
 })
+
+function closeByEscapePress(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    };
+};
 
 initialCards.forEach(appendCard);
 
