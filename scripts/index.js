@@ -20,17 +20,17 @@ const profileName = document.querySelector('.profile__name');
 const profilePost = document.querySelector('.profile__post');
 
 
- function openPopup(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeByEscapePress);
 } 
 
- function closePopup(popup) {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closeByEscapePress);
 } 
 
- function createCard(item) {
+function createCard(item) {
     const element = templateElement.querySelector('.element').cloneNode(true);
     const image = element.querySelector('.element__image');
     image.style.backgroundImage = `url('${item.link}')`;
@@ -114,6 +114,7 @@ editButton.addEventListener('click', ()=> {
     openPopup(editPopup);
     setUserInfoValues();
 })
+
 addButton.addEventListener('click', ()=> openPopup(addPopup));
 editForm.addEventListener('submit', submitEditForm);
 addForm.addEventListener('submit', addCard);
