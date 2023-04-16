@@ -103,6 +103,7 @@ popups.forEach((popup) => {
         }
         
     })
+    
 })
 
 function closeByEscapePress(evt) {
@@ -122,12 +123,5 @@ editButton.addEventListener('click', ()=> {
 addButton.addEventListener('click', ()=> openPopup(addPopup));
 editForm.addEventListener('submit', submitEditForm);
 addForm.addEventListener('submit', addCard);
-
-popupArray.forEach(function(popup) {
-    const closeButton = popup.querySelector('.popup__close');
-    closeButton.addEventListener('click', ()=> {
-        closePopup(popup);
-    });
-});
 
 enableValidation();
