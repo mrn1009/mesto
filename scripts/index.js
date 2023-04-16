@@ -1,6 +1,6 @@
 const popups = document.querySelectorAll('.popup')
 const popupArray = Array.from(popups);
-const elementList = document.querySelector('.elements');
+const elementsContainer = document.querySelector('.elements');
 const templateElement = document.querySelector('.template').content;
 const figurePopup = document.querySelector('.popup_type_figure');
 const figureContent = figurePopup.querySelector('.popup__figure');
@@ -34,14 +34,14 @@ function createCard(item) {
     const element = templateElement.querySelector('.element').cloneNode(true);
     const image = element.querySelector('.element__image');
     image.style.backgroundImage = `url('${item.link}')`;
-    element.querySelector('.element__title').innerText = item.name;
+    element.querySelector('.element__title').textContent = item.name;
 
     element.querySelector('.element__delete').addEventListener('click', function(event) {
         element.remove();
     })
 
     const likeButton = element.querySelector('.element__like');
-    likeButton.addEventListener('click', function(event) {
+    likeButton.addEventListener('click', function() {
         likeButton.classList.toggle('element__like_active');
     })
 
@@ -59,7 +59,7 @@ function createCard(item) {
 
 function appendCard(item) {
     const element = createCard(item);
-    elementList.prepend(element);
+    elementsContainer.prepend(element);
 }
 
 function submitEditForm(event) {
@@ -80,6 +80,10 @@ function addCard(event) {
     }
     appendCard(item);
     event.target.reset();
+
+    const inputList = Array.from(addForm.querySelectorAll(validationConfig.inputSelector));
+    const buttonElement = addForm.querySelector(validationConfig.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement);   
 
     closePopup(addPopup);
 }
@@ -118,3 +122,12 @@ editButton.addEventListener('click', ()=> {
 addButton.addEventListener('click', ()=> openPopup(addPopup));
 editForm.addEventListener('submit', submitEditForm);
 addForm.addEventListener('submit', addCard);
+
+popupArray.forEach(function(popup) {
+    const closeButton = popup.querySelector('.popup__close');
+    closeButton.addEventListener('click', ()=> {
+        closePopup(popup);
+    });
+});
+
+enableValidation();
