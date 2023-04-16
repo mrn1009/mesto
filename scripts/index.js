@@ -101,9 +101,7 @@ popups.forEach((popup) => {
         if (evt.target.classList.contains('popup__close')) {
           closePopup(popup)
         }
-        
-    })
-    
+    }) 
 })
 
 function closeByEscapePress(evt) {
