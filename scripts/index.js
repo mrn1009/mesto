@@ -81,12 +81,14 @@ function addCard(event) {
     appendCard(item);
     event.target.reset();
 
-    const inputList = Array.from(addForm.querySelectorAll(validationConfig.inputSelector));
-    const buttonElement = addForm.querySelector(validationConfig.submitButtonSelector);
+    
     toggleButtonState(inputList, buttonElement);   
 
     closePopup(addPopup);
 }
+
+const inputList = Array.from(addForm.querySelectorAll(validationConfig.inputSelector));
+const buttonElement = addForm.querySelector(validationConfig.submitButtonSelector);
 
 function setUserInfoValues() {
     nameField.value = profileName.textContent; 
@@ -122,4 +124,4 @@ addButton.addEventListener('click', ()=> openPopup(addPopup));
 editForm.addEventListener('submit', submitEditForm);
 addForm.addEventListener('submit', addCard);
 
-enableValidation();
+enableValidation(validationConfig);

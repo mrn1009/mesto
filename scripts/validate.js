@@ -1,11 +1,11 @@
-const validationConfig = {
+const validationConfig = ({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_disabled',
     inputErrorClass: 'popup__input_type_error', 
     errorClass: 'popup__error_visible' 
-}
+})
 
 function showInputError(formElement, inputElement, errorMessage) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -59,9 +59,13 @@ function toggleButtonState(inputList, buttonElement) {
 }
   
 function enableValidation() {
-    const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
-    formList.forEach((formElement) => {
+    const forms = Array.from(document.querySelectorAll(validationConfig.formSelector));
+    forms.forEach((formElement) => {
+      formElement.addEventListener('submit', (evt) => {
+        evt.preventDefault()
+      })
       setEventListeners(formElement);
-    });
+    })
   };
+  
   
