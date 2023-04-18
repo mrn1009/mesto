@@ -80,10 +80,7 @@ function addCard(event) {
     }
     appendCard(item);
     event.target.reset();
-
-    
     toggleButtonState(inputList, buttonElement);   
-
     closePopup(addPopup);
 }
 
