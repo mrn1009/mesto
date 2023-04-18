@@ -90,7 +90,7 @@ const buttonElement = addForm.querySelector(validationConfig.submitButtonSelecto
 function setUserInfoValues() {
     nameField.value = profileName.textContent; 
     postField.value = profilePost.textContent;
-} 
+}
 
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
