@@ -1,13 +1,17 @@
 .profile__info {
-    display: flex;
-    flex-direction: column;
-    max-width: max-content;
-    margin-left: 30px;
+  color: white;
+  display: grid;
+  grid-template-columns: minmax(294px, 1fr) 24px;
+  gap: 18px 16px;
+  align-items: baseline;
+  align-content: center;
 }
 
-@media screen and (max-width: 767px) {
-    .profile__info {
-        margin: 0;
-        
-    }
+@media (max-width: 550px) {
+  .profile__info {
+    text-align: center;
+    grid-template-columns: minmax(189px, 1fr) 24px;
+    gap: 1px 10px;
+    padding-left: 28px;
+  }
 }

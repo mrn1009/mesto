@@ -1,8 +1,14 @@
 .page {
-    font-family: 'Inter', 'Arial', sans-serif;
-    margin: auto;
+    max-width: 880px;
+    font-family: "Inter", "Arial", sans-serif;
+    background-color: black;
     box-sizing: border-box;
-    background-color: #000;
-    max-width: 1280px;
-    color: white;
-}
+    margin: 0 auto;
+    padding-top: 45px;
+  }
+  
+  @media (max-width: 550px) {
+    .page {
+      padding-top: 28px;
+    }
+  }
