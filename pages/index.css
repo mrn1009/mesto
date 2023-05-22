@@ -46,7 +46,7 @@
 
 @import url(../blocks/view/view.css);
 @import url(../blocks/view/__wrapper/view__wrapper.css);
-@import url(../blocks/view/__photo/view.photo.css);
+@import url(../blocks/view/__photo/view__photo.css);
 @import url(../blocks/view/__caption/view__caption.css);
 
 @import url(../blocks/link-hover/link-hover.css);
