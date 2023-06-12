@@ -18,14 +18,12 @@ export default class FormValidation {
     errorElement.classList.add(this._errorClass);
   };
 
-
   _hideInputError (inputElement) {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = '';
   };
-
 
   _checkInputValidity (inputElement) {
     if (inputElement.validity.valid) {
@@ -51,13 +49,8 @@ export default class FormValidation {
     })
   };
 
-  _inactiveButton() {
-    this._buttonElement.setAttribute('disabled', true);
-    this._buttonElement.classList.add(this._inactiveButtonClass);
-  }
-
   resetValidation = () => {
-    this._inactiveButton();
+    this._toggleButtonState();
     this._inputs.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
@@ -65,7 +58,8 @@ export default class FormValidation {
 
   _toggleButtonState () {
     if (this._hasInvalidInput()) {
-      this._inactiveButton;
+      this._buttonElement.setAttribute('disabled', true);
+      this._buttonElement.classList.add(this._inactiveButtonClass);
     } else {
       this._buttonElement.removeAttribute('disabled');
       this._buttonElement.classList.remove(this._inactiveButtonClass);
