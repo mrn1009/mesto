@@ -13,6 +13,8 @@ import {popupElementUser,
         nameUserInput,
         jobInput} from '../utils/constants.js';
 
+import '../pages/index.css';
+
 const userInfo = new UserInfo({
   nameSelector: '.profile__title',
   jobSelector: '.profile__subtitle',

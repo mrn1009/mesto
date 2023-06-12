@@ -4,21 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
   
 </head>
 
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="Изображение логотипа Место">
+    <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Изображение логотипа Место">
   </header>
 
   <main class="content">
 
     <section class="profile">
       <div class="profile__user">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар пользователя">
+        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар пользователя">
         <div class="profile__info">
           <h1 class="profile__title" >Жак-Ив Кусто</h1>
           <button class="profile__edit-button link-hover" type="button" aria-label="Добавить место"></button>
@@ -95,7 +94,7 @@
       </article>
     </template>
 
-    <script type="module" src="./pages/index.js"></script>
+  
 
 </body>
 </html>
