@@ -33,18 +33,18 @@ function createCard(cardData) {
   return elementList;
 };
 
-const defaultCardList = new Section ({
+const CardList = new Section ({
   items: initialCards,
   renderer: (cardData) => {
-    defaultCardList.addItem(createCard(cardData));
+    CardList.addItem(createCard(cardData));
   }
 }, '.elements');
-defaultCardList.renderItems();
+CardList.renderItems();
 
 
 const popupAddPlace = new PopupWithForm('.popup_place', {
   handleFormSubmit: (placeData) => {
-    defaultCardList.addItem(createCard(placeData));
+    CardList.addItem(createCard(placeData));
     }
 })
 popupAddPlace.setEventListeners();
