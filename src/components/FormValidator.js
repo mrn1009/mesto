@@ -69,5 +69,4 @@ export default class FormValidation {
   enableValidation () {
     this._setEventListeners();
   };
-
 };
